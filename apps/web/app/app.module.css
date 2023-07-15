@@ -1,0 +1,7 @@
+.FormContainer {
+  width: 90%;
+  border: 1px solid grey;
+  background-color: orange;
+  padding: 2rem;
+  margin: 0 auto;
+}

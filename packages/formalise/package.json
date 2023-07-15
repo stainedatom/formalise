@@ -1,0 +1,41 @@
+{
+  "name": "formalise",
+  "version": "1.0.0",
+  "description": "A batteries-included paginated form builder for React and Next.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stainedatom/formalise.git"
+  },
+  "keywords": [
+    "forms",
+    "react forms",
+    "user input"
+  ],
+  "author": "Panhaboth Kun",
+  "bugs": {
+    "url": "https://github.com/stainedatom/formalise/issues"
+  },
+  "homepage": "https://github.com/stainedatom/formalise#readme",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"**/*.ts*\"",
+    "generate:component": "turbo gen react-component",
+    "build": "tsup index.tsx --format esm,cjs --dts --external react"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "react": "^18.2.0",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2"
+  }
+}
