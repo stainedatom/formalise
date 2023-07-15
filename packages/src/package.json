@@ -1,13 +1,14 @@
 {
   "name": "@panhaboth/formalise",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A batteries-included paginated form builder for React and Next.js",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "repository": {
     "type": "git",
