@@ -1,6 +1,6 @@
 'use client';
 
-import { Input, Form, FormPage, Button, NextPage, PrevPage, Select, TextArea } from 'formalise';
+import { Input, Form, FormPage, Button, NextPage, PrevPage, Select, TextArea } from '@panhaboth/formalise';
 
 export default function Page(){
   return (

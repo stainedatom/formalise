@@ -1,5 +1,5 @@
 {
-  "name": "formalise",
+  "name": "@panhaboth/formalise",
   "version": "1.0.0",
   "description": "A batteries-included paginated form builder for React and Next.js",
   "main": "./dist/index.js",
