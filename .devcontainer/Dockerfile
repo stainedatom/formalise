@@ -11,6 +11,7 @@ RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
 RUN npm i -g pnpm
 RUN npm i -g turbo
 RUN npm i -g tsup
+RUN npm i -g typescript
 
 # Set `DEVCONTAINER` environment variable to help with orientation
 ENV DEVCONTAINER=true

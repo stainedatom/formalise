@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, FormPage, NextPage, PrevPage, Button } from "formalise";
+import { Form, FormPage, NextPage, PrevPage, Button } from "@panhaboth/formalise";
 import styles from './app.module.css';
 import { InputHTMLAttributes, useState, FC } from "react";
 
