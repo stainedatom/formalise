@@ -7,7 +7,7 @@ import { NextPage, PrevPage } from "./utils/functions";
 import { FormContext } from "./FormContext";
 
 
-type InputStructure = XOR<NativeHTMLInputProps, {name: string, type: string, as: ReactElement<any>}>
+export type InputStructure = XOR<NativeHTMLInputProps, {name: string, type: string, as: ReactElement<any>}>
 
 export const Input: FC<InputStructure> = (props) => {
   const { name, as, type } = props;
@@ -79,7 +79,7 @@ export const Input: FC<InputStructure> = (props) => {
   }
 }
 
-type SelectStructure = XOR<NativeHTMLSelectProps, {name: string, as: ReactElement<any>}>
+export type SelectStructure = XOR<NativeHTMLSelectProps, {name: string, as: ReactElement<any>}>
 
 export const Select: FC<SelectStructure> = (props) => {
   const { name, as } = props;
@@ -107,7 +107,7 @@ export const Select: FC<SelectStructure> = (props) => {
   }
 }
 
-type TextAreaStructure = XOR<NativeHTMLTextAreaProps, {name: string, as: ReactElement<any>}>
+export type TextAreaStructure = XOR<NativeHTMLTextAreaProps, {name: string, as: ReactElement<any>}>
 
 export const TextArea: FC<TextAreaStructure> = (props) => {
   const { name, as } = props;
@@ -135,7 +135,7 @@ export const TextArea: FC<TextAreaStructure> = (props) => {
   }
 }
 
-interface PageStructure {
+export interface PageStructure {
   style?: CSSProperties,
   className?: string,
   children: (string | number | boolean | null | undefined | ReactElement<any, string | JSXElementConstructor<any>> | ReactPortal) | (string | number | boolean | null | undefined | ReactElement<any, string | JSXElementConstructor<any>> | ReactPortal)[]
@@ -163,7 +163,7 @@ export const FormPage: FC<PageStructure> = ({ style, className, children }) => {
   )
 }
 
-interface FormStructure {
+export interface FormStructure {
   style?: CSSProperties,
   className?: string,
   children: ReactElement<PageStructure, FC<PageStructure>> | ReactElement<PageStructure, FC<PageStructure>>[],
@@ -194,7 +194,7 @@ export const Form: FC<FormStructure> = ({ style, className, children, initialVal
   );
 }
 
-type ButtonStructure = XOR<NativeHTMLButtonProps, {as: ReactElement<any>}>
+export type ButtonStructure = XOR<NativeHTMLButtonProps, {as: ReactElement<any>}>
 
 export const Button: FC<ButtonStructure> = (props) => {
   const { as, onClick } = props;
