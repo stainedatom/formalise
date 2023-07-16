@@ -6,9 +6,10 @@ export type XOR<T, U> = (T | U) extends object ? (Without<T, U> & U) | (Without<
 export type WithRequiredProperty<Type, Key extends keyof Type> = Type & {
   [Property in Key]-?: Type[Property];
 };
+export type CustomOnClick = (data: any, e: MouseEvent<HTMLButtonElement>) => (void | typeof NextPage | typeof PrevPage)
 export type NativeHTMLInputProps = WithRequiredProperty<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'name' | 'type'>
 export type NativeHTMLSelectProps = WithRequiredProperty<DetailedHTMLProps<InputHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>, 'name'>
 export type NativeHTMLTextAreaProps = WithRequiredProperty<DetailedHTMLProps<InputHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>, 'name'>
 export interface NativeHTMLButtonProps extends Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick'> {
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void | typeof NextPage | typeof PrevPage
+  onClick?: CustomOnClick
 }

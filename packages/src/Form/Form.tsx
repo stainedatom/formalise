@@ -2,7 +2,7 @@
 
 import { useContext, MouseEvent, FC, FormEvent, useState, CSSProperties, ReactElement, createElement, JSXElementConstructor, ReactPortal, ChangeEvent } from "react";
 import { getPropValue, updateObjProp } from "./utils/functions";
-import { XOR, NativeHTMLButtonProps, NativeHTMLInputProps, NativeHTMLSelectProps, NativeHTMLTextAreaProps } from "./utils/types";
+import { XOR, NativeHTMLButtonProps, NativeHTMLInputProps, NativeHTMLSelectProps, NativeHTMLTextAreaProps, CustomOnClick } from "./utils/types";
 import { NextPage, PrevPage } from "./utils/functions";
 import { FormContext } from "./FormContext";
 
@@ -194,21 +194,21 @@ export const Form: FC<FormStructure> = ({ style, className, children, initialVal
   );
 }
 
-export type ButtonStructure = XOR<NativeHTMLButtonProps, {as: ReactElement<any>}>
+export type ButtonStructure = XOR<NativeHTMLButtonProps, {onClick?: CustomOnClick, as: ReactElement<any>}>
 
 export const Button: FC<ButtonStructure> = (props) => {
   const { as, onClick } = props;
-  const { activePage, setActivePage } = useContext(FormContext);
+  const { activePage, setActivePage, entries } = useContext(FormContext);
 
   if(as){
     return createElement(as.type, {...as.props,
-      onClick: as.props.onClick ? (e: MouseEvent<HTMLButtonElement>) => {
-        if(as.props.onClick(e) === NextPage){
+      onClick: onClick ? (e: MouseEvent<HTMLButtonElement>) => {
+        if(onClick(entries, e) === NextPage){
           NextPage(e);
           //do real logic for next page
           setActivePage(() => activePage + 1);
         }
-        else if(as.props.onClick(e) === PrevPage){
+        else if(onClick(entries, e) === PrevPage){
           PrevPage(e);
           //do real logic for prev page
           setActivePage(() => activePage - 1);
@@ -219,12 +219,12 @@ export const Button: FC<ButtonStructure> = (props) => {
   else{
     return createElement('button', {...props,
       onClick: onClick ? (e: MouseEvent<HTMLButtonElement>) => {
-        if(onClick(e) === NextPage){
+        if(onClick(entries, e) === NextPage){
           NextPage(e);
           //do real logic for next page
           setActivePage(() => activePage + 1);
         }
-        else if(onClick(e) === PrevPage){
+        else if(onClick(entries, e) === PrevPage){
           PrevPage(e);
           //do real logic for prev page
           setActivePage(() => activePage - 1);
