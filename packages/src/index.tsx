@@ -1,3 +1,3 @@
 // component exports
 export * from './Form/Form';
-export { NextPage, PrevPage } from './Form/utils/functions';
+export { NextPage, PrevPage, Delete, Push } from './Form/utils/functions';
